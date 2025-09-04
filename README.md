@@ -1,5 +1,7 @@
 # prenex-cnf-dnf-calculator
 Converts logical expressions written in LaTeX into different normal forms: CNF, DNF, Prenex Form, Clausal Form, and Horn Clauses, with mathematical rendering using MathJax
+### Feito Por Hussein Ali El Gazouini.
+#### gazouinihussein@gmail.com
 
 # Logica e Pesquisa de como prenex-cnf-dnf-calculator foi feito Passo a Passo.
 
