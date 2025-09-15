@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <title>prenex-cnf-dnf-calculator</title>
+  <link rel='stylesheet' href='./styles.css' />
+  <script src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js' async></script>
+  <script src='./app.js' defer></script>
+</head>
+<body>
+  <nav class='navbar'>
+    <div class='nav-inner'>
+      <div class='brand'>prenex-cnf-dnf-calculator</div>
+      <div class='nav-actions'>
+        <a href='mailto:gazouinihussein@gmail.com'>Contato</a>
+        <a href='https://github.com/ItsPoyoyo' target='_blank' rel='noopener'>GitHub @ItsPoyoyo</a>
+      </div>
+    </div>
+  </nav>
+  <div class='container'>
+    <h1>prenex-cnf-dnf-calculator</h1>
+    <p class='small'>Digite uma formula bem formada em LaTeX <b>(ou simbolos unicode unicode)</b>.</p>
+
+    <div class='card center'>
+      <div class='label'>Entrada (aceita: \forall, \exists, \neg, \land, \lor, \to, \leftrightarrow)</div>
+      <textarea id='input' placeholder='Ex: \forall x (P(x) \to \exists y\, Q(x,y))'></textarea>
+    </div>
+
+    <div class='card'>
+      <div class='label'>Pre-visualizacao (MathJax)</div>
+      <div id='preview' class='preview'>&nbsp;</div>
+    </div>
+
+    <div class='card'>
+      <div class='label'>Exemplos Mais Comuns</div>
+      <div class='examples-row' style='margin-top:8px'>
+        <button class='chip' data-example='\forall x (\neg P(x) \lor Q(x))'>∀x (¬P(x) ∨ Q(x))</button>
+        <button class='chip' data-example='(\forall x\, P(x)) \to (\exists y\, Q(y))'>(∀x P(x)) → (∃y Q(y))</button>
+        <button class='chip' data-example='\forall x \exists y (R(x,y) \land \neg S(y))'>∀x ∃y (R(x,y) ∧ ¬S(y))</button>
+        <button class='chip' data-example='\exists x \forall y (\neg P(x) \lor P(y))'>∃x ∀y (¬P(x) ∨ P(y))</button>
+        <button class='chip' data-example='\forall x (P(x) \leftrightarrow Q(x))'>∀x (P(x) ↔ Q(x))</button>
+      </div>
+      <div style='margin-top:10px' class='muted'>
+        Dicas:
+        <span class='kbd'>\forall</span> ∀,
+        <span class='kbd'>\exists</span> ∃,
+        <span class='kbd'>\neg</span> ¬,
+        <span class='kbd'>\land</span> ∧,
+        <span class='kbd'>\lor</span> ∨,
+        <span class='kbd'>\to</span> →,
+        <span class='kbd'>\leftrightarrow</span> ↔.
+      </div>
+    </div>
+
+    <div class='card' style='margin-top:14px'>
+      <div class='label'>Passo a passo</div>
+      <div class='row' style='margin:6px 0 10px; justify-content:flex-start; gap:8px'>
+        <button id='expand-all' class='chip' type='button'>Expandir tudo</button>
+        <button id='collapse-all' class='chip' type='button'>Fechar tudo</button>
+        <button id='copy-summary' class='chip' type='button'>Copiar resumo</button>
+      </div>
+      <div id='steps'></div>
+      <div id='status' class='muted' style='margin-top:8px'></div>
+      <div id='error' class='error' style='margin-top:6px'></div>
+    </div>
+
+    <div class='footer'>
+      Feito por Hussein Ali El Gazouini — <a href='mailto:gazouinihussein@gmail.com' style='color:#9fc3ff'>gazouinihussein@gmail.com</a> — <a href='https://github.com/ItsPoyoyo' target='_blank' rel='noopener' style='color:#9fc3ff'>GitHub @ItsPoyoyo</a>
+    </div>
+  </div>
+</body>
+</html>
